@@ -10,8 +10,8 @@
       <div class="flex flex-wrap -m-2">
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-            <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="name" class="leading-7 text-sm text-gray-600">Post Image</label>
+            <input type="file" id="file" accept=".png, .jpg, .jpeg" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         <div class="p-2 w-1/2">
@@ -21,18 +21,18 @@
           </div>
         </div>
         <div class="p-2 w-full">
-          <div class="relative">
-              <quillEditor v-model="text"/>
+          <div class="relative h-1/3">
+              <quillEditor @change="onEditorChange($event)"  />
           </div>
         </div>
         <div class="p-2 w-full">
           <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-          <a class="text-indigo-500">{{text}}</a>
-          <p class="leading-normal my-5">49 Smith St.
-            <br>Saint Cloud, MN 56301
-          </p>
+          <a class="text-indigo-500"></a>
+          <div class="leading-normal my-5">
+            <!-- {{delta.html}} -->
+          </div>
           <span class="inline-flex">
             <a class="text-gray-500">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -78,9 +78,18 @@ export default {
 
   data(){
      return{
-       text: ""
+       delta:""
      }
+  },
+
+  methods:{
+     onEditorChange(html){
+         this.delta =  html
+       
+        console.log(html)
+    }
   }
+  
 
 }
 </script>
