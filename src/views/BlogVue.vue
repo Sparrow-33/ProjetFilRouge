@@ -1,6 +1,6 @@
 <template>
 <NavBar/>
-<section class="text-gray-600 body-font bg-slate-900 relative h-full ">
+<section class="text-gray-600 body-font bg-slate-50 relative h-full px-32 ">
   <div class="container px-5 py-24 mx-auto ">
     <div class="flex flex-wrap -m-4">
       <BlogCard/>

@@ -13,30 +13,30 @@
     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
       <div class="lg:w-1/4 md:w-1/2 w-full flex px-4 gap-3 align-center">
           <img src="@/assets/linkedin.svg" alt="" class="w-10 ">
-          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Follow Us on LinkedIn</h2>
+          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3 mt-5">Follow Us on LinkedIn</h2>
       </div>
 
       <div class="lg:w-1/4 md:w-1/2 w-full flex px-4 gap-3 align-center">
           <img src="@/assets/facebook.svg" alt="" class="w-14 ">
-          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Check out our Page</h2>
+          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3 mt-5">Check out our Page</h2>
       </div>
 
       <div class="lg:w-1/4 md:w-1/2 w-full flex px-4 gap-3 align-center">
           <img src="@/assets/twitter.svg" alt="" class="w-12">
-          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">See what we tweet about</h2>
+          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3 mt-5">See what we tweet about</h2>
       </div>
 
       <div class="lg:w-1/4 md:w-1/2 w-full flex px-4 gap-3 align-center">
           <img src="@/assets/youtube.svg" alt="" class="w-14 ">
-          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Our videos</h2>
+          <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3 mt-5">Our videos</h2>
       </div>
 
     </div>
   </div>
   
-    <div class="container mx-auto py-4 px-5 flex flex-wrap justify-center text-center   bg-slate-900">
+    <div class=" mx-auto py-4 px-5 flex flex-wrap justify-center     bg-slate-900">
       
-      <span class="flex sm:ml-auto sm:mt-0 mt-2 justify-center  ">
+      <span class="flex sm:ml-auto mx-auto my-0 gap-7  sm:mt-0 mt-2 justify-center width-full  ">
         <a class="text-gray-500">
           Tutorials
         </a>

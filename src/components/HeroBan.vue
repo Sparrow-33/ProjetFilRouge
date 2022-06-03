@@ -33,16 +33,20 @@
     </div>
     <div class="flex flex-wrap gap-10 justify-center sm:-m-4 -mx-4 -mb-10 -mt-4">
       
-      <HeroCard imgName="tailored.svg"
+      <HeroCard source=http://localhost:8080/img/tailored.0b53a2c8.svg
                 title="Tailored for you"
                 text="No matter your experience level, you'll be writing real, functional code within minutes of starting your first course. "
                 />
 
       <HeroCard  title="Bite-sized"
+                 source= http://localhost:8080/img/toTheTop.cbe68c6a.svg
+                 style="width:500px; margin-bottom:75px"
                  text="Go step-by-step through our unique courses. Assess what you’ve learned with in-lesson quizzes, and gradually advance your skills with practice."
       />
                  
       <HeroCard title="Get proof"
+                style="width:500px; margin-bottom:75px"
+                source=http://localhost:8080/img/teamwork.7e1c8e7f.svg
                 text="Earn a certificate to validate your newly acquired skills. 
                           Post it on social for others to see."
       />
@@ -63,10 +67,13 @@
     <div class="flex flex-wrap gap-28 justify-center sm:-m-4 -mx-4 -mb-10 -mt-4">
       
      
-      <ThirdCard title="Students"
+      <ThirdCard source = http://localhost:8080/img/student.4080c34a.svg 
+                title="Students"
                  text="Prepping for the big test or want to ace your first interview? Use Sololearn's real-world practice to reinforce what you've learned and get you ready for that big moment."
       />
       <ThirdCard title="Professionals"
+                 style="width:260px; margin:0 auto"
+                 source= http://localhost:8080/img/content.f0ab35d6.svg
                  text="You can learn something totally new to advance your career. Or maybe you just want to knock off the rust. Try Sololearn to get access to a variety of courses, from machine learning to web development."
       />
       
