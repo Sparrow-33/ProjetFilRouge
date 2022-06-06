@@ -28,7 +28,7 @@
                   <img src="https://cdn.tailgrids.com/1.0/assets/images/logo/logo.svg" alt="logo" />
                   </a>
                </div> -->
-               <form>
+               <form @submit.prevent="signUp">
 
                   <div class="mb-6">
                      <input
@@ -49,6 +49,7 @@
                         focus:border-blue
                         focus
                         "
+                        v-model="name"
                         />
                   </div>
 
@@ -71,6 +72,7 @@
                         focus:border-blue
                         focus
                         "
+                        v-model="email"
                         />
                   </div>
 
@@ -92,6 +94,7 @@
                         focus-visible:shadow-none
                         focus:border-primary
                         "
+                        v-model="password"
                         />
                   </div>
 
@@ -114,6 +117,7 @@
                         focus:border-blue
                         focus
                         "
+                        v-model="password_confirm"
                         />
                   </div>
 
@@ -391,7 +395,44 @@ import FooterVue from '@/components/FooterVue.vue'
 // import ToastPop from '@/components/ToastPop.vue'
 export default {
   components: { NavBar, FooterVue },
-    name:"SignUp"
+    name:"SignUp",
+
+    data(){
+       return{
+          name:"",
+          email:"",
+          password:"",
+          password_confirm:""
+       }
+    },
+
+    methods:{
+
+         signUp(){
+               // if(this.name == "" || this.email == "" || this.password == "" || this.password_confirm == ""){
+               //    this.$toast.open({
+               //       message: 'Please fill all the fields',
+               //       type: 'is-danger',
+               //       duration: 3000
+               //    });
+               // }else if(this.password != this.password_confirm){
+               //    this.$toast.open({
+               //       message: 'Password and Confirm Password does not match',
+               //       type: 'is-danger',
+               //       duration: 3000
+               //    });
+               // }else{
+               //    this.$toast.open({
+               //       message: 'Sign Up Successful',
+               //       type: 'is-success',
+               //       duration: 3000
+               //    });
+               //    // this.$router.push('/login')
+               // }
+
+               console.log("submit signup")
+         },
+    }
 
 }
 </script>

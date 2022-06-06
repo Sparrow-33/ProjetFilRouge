@@ -2,20 +2,20 @@
     <section class="relative -top-16 text-white bg-slate-900  body-font">
   <div class="container mx-auto flex flex-col px-5 pt-11 justify-center items-center">
     <div class="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
-      <h1 class="title-font  text-6xl mb-8 font-bold ">Learn From The <span class="text-sky-600">Best</span></h1>
-      <p class="mb-8 leading-relaxed text-2xl">With one of  the world's best tech community</p>
+      <h1 class="title-font  text-6xl mb-8 font-bold ">Apprenez des  <span class="text-sky-600">Meilleurs</span></h1>
+      <p class="mb-8 leading-relaxed text-2xl">Avec l'une des meilleures communautés technologiques au monde</p>
       <div class="flex w-3/4 rounded justify-center items-end bg-slate-50 py-3 border-2 border-sky-600 ">
           <div class="relative mr-4 w-32   text-left">
         <!-- <label for="hero-field" class="leading-7 text-sm text-gray-600">Placeholder</label> -->
           <select name=""  class="w-full bg-sky-600  rounded focus:ring-2 focus:ring-blue-700   focus:border-blue-600 text-base outline-none w- py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" id="">
-           <option selected>Category</option>
+           <option selected>Categorie</option>
           </select>
         </div>
         <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4 md:w-full text-left">
           <!-- <label for="hero-field" class="leading-7 text-sm text-gray-600">Placeholder</label> -->
-          <input type="text" id="hero-field" name="hero-field" placeholder="What would you like to learn about ?" class="w-full bg-gray-100  rounded focus:ring-2 border-2 border-sky-400  focus:bg-transparent border   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          <input type="text" id="hero-field" name="hero-field" placeholder="Qu'aimeriez-vous apprendre ?" class="w-full bg-gray-100  rounded focus:ring-2 border-2 border-sky-400  focus:bg-transparent border   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
         </div>
-        <button class="inline-flex text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-lg">search</button>
+        <button class="inline-flex text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-lg">recherche</button>
       </div>
       <!--  -->
     </div>
@@ -28,20 +28,20 @@
     <div class="flex flex-col">
       
       <div class="flex flex-wrap sm:flex-row flex-col justify-center py-6 mb-12">
-        <h1 class="sm:w-2/5 text-gray-900 font-bold title-font text-4xl leading-10  mb-2 sm:mb-0">Why <span class="text-sky-500 bg-sky-200 px-3 py-4 rounded-lg">TechTopia</span>?</h1>
+        <h1 class="sm:w-2/5 text-gray-900 font-bold title-font text-4xl leading-10  mb-2 sm:mb-0">Pourquoi <span class="text-sky-500 bg-sky-200 px-3 py-4 rounded-lg">TechTopia</span>?</h1>
       </div>
     </div>
     <div class="flex flex-wrap gap-10 justify-center sm:-m-4 -mx-4 -mb-10 -mt-4">
       
       <HeroCard source=http://localhost:8080/img/tailored.0b53a2c8.svg
-                title="Tailored for you"
-                text="No matter your experience level, you'll be writing real, functional code within minutes of starting your first course. "
+                title="Sur mesure pour vous"
+                text="Quel que soit votre niveau d'expérience, vous écrirez du code réel et fonctionnel quelques minutes après le début de votre premier cours. "
                 />
 
       <HeroCard  title="Bite-sized"
                  source= http://localhost:8080/img/toTheTop.cbe68c6a.svg
                  style="width:500px; margin-bottom:75px"
-                 text="Go step-by-step through our unique courses. Assess what you’ve learned with in-lesson quizzes, and gradually advance your skills with practice."
+                 text="Suivez étape par étape nos cours uniques. Évaluez ce que vous avez appris avec des questionnaires en cours et améliorez progressivement vos compétences avec la pratique."
       />
                  
       <HeroCard title="Get proof"
@@ -68,13 +68,13 @@
       
      
       <ThirdCard source = http://localhost:8080/img/student.4080c34a.svg 
-                title="Students"
-                 text="Prepping for the big test or want to ace your first interview? Use Sololearn's real-world practice to reinforce what you've learned and get you ready for that big moment."
+                title="Étudiants"
+                 text="Vous vous préparez pour le grand test ou vous voulez réussir votre premier entretien? Utilisez la pratique du monde réel TechTopia pour renforcer ce que vous avez appris et vous préparer pour ce grand moment."
       />
       <ThirdCard title="Professionals"
                  style="width:260px; margin:0 auto"
                  source= http://localhost:8080/img/content.f0ab35d6.svg
-                 text="You can learn something totally new to advance your career. Or maybe you just want to knock off the rust. Try Sololearn to get access to a variety of courses, from machine learning to web development."
+                 text="Vous pouvez apprendre quelque chose de totalement nouveau pour faire avancer votre carrière. Ou peut-être voulez-vous simplement éliminer la rouille. Essayez Sololearn pour accéder à une variété de cours, de l'apprentissage automatique au développement Web."
       />
       
     </div>

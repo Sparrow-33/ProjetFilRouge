@@ -8,15 +8,15 @@
     </router-link>
 
     <nav class="md:ml-auto text-white md:mr-auto flex flex-wrap items-center text-base justify-center">
-      <router-link to="#" class="mr-5 hover:text-cyan-600">Tutorials</router-link>
+      <router-link to="#" class="mr-5 hover:text-cyan-600">Tutoriels</router-link>
       <router-link to="#" class="mr-5 hover:text-cyan-600">Home</router-link>
-      <router-link to="#"  class="mr-5 hover:text-cyan-600">About</router-link>
+      <router-link to="#"  class="mr-5 hover:text-cyan-600">a propos</router-link>
       <router-link :to="{name:'blog'}" class="mr-5 hover:text-cyan-600">Blog</router-link>
-      <router-link to="/ContactPage" class="mr-5 hover:text-cyan-600">Contact Us</router-link>
+      <router-link to="/ContactPage" class="mr-5 hover:text-cyan-600">Contactez nous</router-link>
     </nav>
 
     <router-link to="/SignIn">
-    <button class="inline-flex items-center text-white bg-sky-500 border-0 py-2 px-3 focus:outline-none hover:bg-sky-600 rounded text-base mt-4 md:mt-0">Get Started
+    <button class="inline-flex items-center text-white bg-sky-500 border-0 py-2 px-3 focus:outline-none hover:bg-sky-600 rounded text-base mt-4 md:mt-0">s'inscrire
     </button>
     </router-link>
 
