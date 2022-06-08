@@ -4,7 +4,7 @@
 		<!-- sideBarStart -->
 
 
-<div class="h-screen hidden lg:block my-4 ml-4 shadow-lg relative -left-10 -top-20 w-44 z-10">
+<!-- <div class="h-screen hidden lg:block my-4 ml-4 shadow-lg relative -left-10 -top-20 w-44 z-10">
     <div class="bg-white h-full rounded-2xl text-slate-900 ">
         <div class="flex items-center justify-center pt-6">
             <svg width="35" height="30" viewBox="0 0 256 366" version="1.1" preserveAspectRatio="xMidYMid">
@@ -108,7 +108,7 @@
             </div>
         </nav>
     </div>
-</div>
+</div> -->
 
  <!-- sideBarEnd -->
 		<div class="flex flex-col max-w-3xl mx-auto overflow-hidden relative blog-body -right-20 rounded text-left">

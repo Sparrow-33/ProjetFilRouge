@@ -79,7 +79,7 @@
                   <div class="mb-6">
                      <input
                         type="password"
-                        placeholder="Password"
+                        placeholder="mot de passe"
                         class="
                         w-full
                         rounded-md
@@ -101,7 +101,7 @@
                    <div class="mb-6">
                      <input
                         type="password"
-                        placeholder="confirm password"
+                        placeholder="confirmer mot de passe"
                         class="
                         w-full
                         rounded-md
@@ -124,7 +124,7 @@
                   <div class="mb-10">
                      <input
                         type="submit"
-                        value="Sign In"
+                        value="sign in"
                         class="
                         w-full
                         rounded-md
@@ -151,15 +151,15 @@
                   hover:underline hover:text-primary
                   "
                   >
-               Forget Password?
+               mot de passe oublié?
                </a>
                <p class="text-base text-[#adadad]">
-                  Not a member yet?
+                  pas encore un membre ?
                   <router-link
                      to="/SignIn"
                      class="text-primary hover:underline hover:text-cyan-600"
                      >
-                  Sign Up
+                  rejoingez-nous
                   </router-link>
                </p>
                <div>
@@ -409,26 +409,14 @@ export default {
     methods:{
 
          signUp(){
-               // if(this.name == "" || this.email == "" || this.password == "" || this.password_confirm == ""){
-               //    this.$toast.open({
-               //       message: 'Please fill all the fields',
-               //       type: 'is-danger',
-               //       duration: 3000
-               //    });
-               // }else if(this.password != this.password_confirm){
-               //    this.$toast.open({
-               //       message: 'Password and Confirm Password does not match',
-               //       type: 'is-danger',
-               //       duration: 3000
-               //    });
-               // }else{
-               //    this.$toast.open({
-               //       message: 'Sign Up Successful',
-               //       type: 'is-success',
-               //       duration: 3000
-               //    });
-               //    // this.$router.push('/login')
-               // }
+               if(this.name == "" || this.email == "" || this.password == "" || this.password_confirm == ""){
+                  this.$toast.error("Please fill all the fields");
+               }else if(this.password != this.password_confirm){
+                  this.$toast.error('Password and Confirm Password does not match');
+               }else{
+                  this.$toast.success('Sign Up Successful');
+                  this.$router.push("/SignIn");
+               }
 
                console.log("submit signup")
          },

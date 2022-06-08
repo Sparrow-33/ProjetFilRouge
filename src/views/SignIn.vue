@@ -20,13 +20,11 @@
                md:px-[60px]
                "
                >
-               <div class="mb-10 md:mb-16 text-center">
-                  <p class="text-2xl font-semibold text-sky-500">Happy To see you</p>
-               </div>
-               <form>
+               
+               <form @submit.prevent="signIn">
                   <div class="mb-6">
                      <input
-                        type="text"
+                        type="email"
                         placeholder="Email"
                         class="
                         w-full
@@ -44,6 +42,7 @@
                         focus:border-2
                         
                         "
+                        v-model="email"
                         />
                   </div>
                   <div class="mb-6">
@@ -65,6 +64,7 @@
                         focus:border-sky-500
                         focus:border-2
                         "
+                        v-model="password"
                         />
                   </div>
                   <div class="mb-10">
@@ -343,7 +343,35 @@ export default {
     components:{
     NavBar,
     FooterVue,
-}
+
+    
+},
+data(){
+       return{
+          email:"",
+          password:""
+       }
+    },
+methods:{
+  
+},
+
+ created:{
+ //sign in
+    signIn(){
+               if( this.email == "" || this.password == ""){
+                  this.$toast.error("Please fill all the fields");
+               
+               }else{
+                  this.$toast.success('Sign Up Successful');
+                  this.$router.push("/SignIn");
+               }
+
+               console.log("submit signup")
+         },
+
+        
+ }
 
 }
 </script>

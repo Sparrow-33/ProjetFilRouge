@@ -10,6 +10,11 @@ import notFound from "@/views/NotFound"
 import ContactPage from "@/views/ContactPage"
 import BlogPage from "@/views/BlogPage"
 import NotFound from "@/views/NotFound"
+import TutorialsPage from "@/views/TutorialsPage"
+import UsersDashboard from "@/views/UsersDashboard"
+
+
+
 
 const routes =[
     {
@@ -57,6 +62,16 @@ const routes =[
         path:"/BlogPage",
         name:"BlogPage",
         component:BlogPage
+    },
+    {
+        path:"/TutorialsPage",
+        name:"TutorialsPage",
+        component:TutorialsPage
+    },
+    {
+        path:"/UsersDashboard",
+        name:"UsersDashboard",
+        component:UsersDashboard
     },
     { path: "/:pathMatch(.*)*", redirect: {path: '/NotFound'}, component:NotFound}
 ]

@@ -1,6 +1,7 @@
 <template>
 <NavBar/>
   <section class="text-gray-600 body-font relative -top-40">
+  <form @submit.prevent="createArticle()" >
   <div class="container px-5 py-24 mx-auto">
     <div class="flex justify-center  text-center w-full mb-12  ">
       <h1 class="sm:text-3xl text-2xl w-fit py-4 px-10 rounded-b-lg font-medium title-font mb-4 bg-slate-900 text-slate-200">Creer votre Article</h1>
@@ -24,13 +25,13 @@
         <div class="p-2 w-1/2">
           <div class="relative">
             <!-- <label for="name" class="leading-7 text-sm text-gray-600">Post Image</label> -->
-            <input type="file" id="file" accept=".png, .jpg, .jpeg" name="name" class= " w-full bg-gray-100 bg-opacity-50 rounded-full border border-slate-900  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <input type="file" id="file" accept=".png, .jpg, .jpeg" @change="handleUpload($event.target.files)" name="name" class= " w-full bg-gray-100 bg-opacity-50 rounded-full border border-slate-900  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
             <!-- <label for="email" class="leading-7 text-sm text-gray-600">Article title</label> -->
-            <input type="text" id="title" placeholder="titre d'article"  name="email" class="preview-btn bg-[#F4F7FF]   border-b-2 border-slate-800   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <input type="text" id="title" v-model="title" placeholder="titre d'article"  name="email" class="preview-btn bg-[#F4F7FF]   border-b-2 border-slate-800   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         <div class="p-2 w-1/3">
@@ -43,7 +44,7 @@
         <!-- btns end -->
         <div class="p-2 w-full relative">
           <div class="relative h-full">
-              <quillEditor @change="onEditorChange($event)"  />
+              <quillEditor v-model:value="delta" />
           </div>
 
           <div class="p-2 w-full">
@@ -51,11 +52,14 @@
         </div>
         </div>
         
-        
-      </div>
       
+
+      </div>
     </div>
   </div>
+
+        </form>
+
 </section>
 <FooterVue/>
 </template>
@@ -74,25 +78,56 @@ export default {
 
   data(){
      return{
-       delta:""
+       delta:"",
+       photo: null,
+       title:""
      }
   },
 
   methods:{
+
+
      onEditorChange(html){
          this.delta =  html
        
         console.log(html)
     },
-    //function that renders html to the page
-    renderHtml(){
-      return this.delta.ops.map(op => {
-        if(op.insert){
-          return op.insert
-        }
-      }).join("")
+
+    handleUpload(file){
+      this.photo = file[0]
+      // console.log(this.photo)
+    },
+
+    async createArticle(){
+
+      // const formData = new FormData()
+      // formData.append('title', this.title)
+      // formData.append('content', this.delta)
+      // formData.append('photo', this.photo)
+
+      const obj={
+        title: this.title,
+        content: this.delta,
+        cover : this.photo
+      }
+      // formData.append('categorie', this.categorie)
+      // formData.append('user_id', this.user_id)
+      // formData.append('token', this.token)
+      console.log(obj)
+      const response = await fetch('http://localhost/app/users/createArticle',{
+          method: 'POST',
+          headers: {'content-type':'application/json'},
+          body:JSON.stringify(obj)
+        
+      })
+
+      const result = await response.json()
+      console.log(result)
     }
-  }
+    
+  },
+
+  
   
 
 }

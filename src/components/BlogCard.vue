@@ -2,7 +2,7 @@
 
 <template>
 	<div class=" dark:text-gray-50 mb-10 rounded-lg bg-[#F4F7FF] ">
-		<div class="container grid grid-cols-12 mx-auto dark:bg-slate-800 hover:bg-slate-700 transition-all rounded-lg bg-[#F4F7FF]">
+		<div class="container grid grid-cols-12 mx-auto dark:bg-slate-900 hover:bg-slate-800 transition-all rounded-lg bg-[#F4F7FF]">
 			<div class="bg-no-repeat bg-cover dark:bg-gray-400 col-span-full lg:col-span-4" style="background-image: url('https://source.unsplash.com/random/640x480'); background-position: center center; background-blend-mode: multiply; background-size: cover;"></div>
 			<div class="flex flex-col p-6 col-span-full row-span-full lg:col-span-8 lg:p-10">
 				<div class="flex justify-start">

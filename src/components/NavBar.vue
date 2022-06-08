@@ -8,7 +8,7 @@
     </router-link>
 
     <nav class="md:ml-auto text-white md:mr-auto flex flex-wrap items-center text-base justify-center">
-      <router-link to="#" class="mr-5 hover:text-cyan-600">Tutoriels</router-link>
+      <router-link to="/TutorialsPage" class="mr-5 hover:text-cyan-600">Tutoriels</router-link>
       <router-link to="#" class="mr-5 hover:text-cyan-600">Home</router-link>
       <router-link to="#"  class="mr-5 hover:text-cyan-600">a propos</router-link>
       <router-link :to="{name:'blog'}" class="mr-5 hover:text-cyan-600">Blog</router-link>
@@ -34,6 +34,11 @@ export default{
 
 
 }
-
-
 </script>
+
+<style scoped>
+   header{
+       margin-top: 60px; 
+
+   }
+</style>
