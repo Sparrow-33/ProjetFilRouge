@@ -1,6 +1,6 @@
 <template>
     
-<header class="text-gray-600 body-font relative -top-16 bg-slate-900">
+<header class="text-gray-600 body-font relative bg-slate-900">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <router-link to="/" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <img src="@/assets/logo.svg" class="w-10 h-10"/>
@@ -38,7 +38,7 @@ export default{
 
 <style scoped>
    header{
-       margin-top: 60px; 
+       /* margin-top: 60px;  */
 
    }
 </style>

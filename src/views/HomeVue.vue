@@ -1,7 +1,9 @@
 <template>
-<NavBar/>
+<div>
+    <NavBar/>
     <HeroBan/>
-<FooterVue/>    
+<FooterVue/>
+</div>    
 </template>
 
 <script>

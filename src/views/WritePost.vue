@@ -25,7 +25,7 @@
         <div class="p-2 w-1/2">
           <div class="relative">
             <!-- <label for="name" class="leading-7 text-sm text-gray-600">Post Image</label> -->
-            <input type="file" id="file" accept=".png, .jpg, .jpeg" @change="handleUpload($event.target.files)" name="name" class= " w-full bg-gray-100 bg-opacity-50 rounded-full border border-slate-900  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <input type="file" id="file" accept=".png, .jpg, .jpeg" @change="handleUpload($event.target.files)" name="photo" class= " w-full bg-gray-100 bg-opacity-50 rounded-full border border-slate-900  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         <div class="p-2 w-1/2">
@@ -95,36 +95,28 @@ export default {
 
     handleUpload(file){
       this.photo = file[0]
-      // console.log(this.photo)
     },
 
     async createArticle(){
 
-      // const formData = new FormData()
-      // formData.append('title', this.title)
-      // formData.append('content', this.delta)
-      // formData.append('photo', this.photo)
-
-      const obj={
-        title: this.title,
-        content: this.delta,
-        cover : this.photo
-      }
-      // formData.append('categorie', this.categorie)
-      // formData.append('user_id', this.user_id)
-      // formData.append('token', this.token)
-      console.log(obj)
+      const formData = new FormData()
+      formData.append('title', this.title)
+      formData.append('content', this.delta)
+      formData.append('file', this.photo)
+  
       const response = await fetch('http://localhost/app/users/createArticle',{
           method: 'POST',
-          headers: {'content-type':'application/json'},
-          body:JSON.stringify(obj)
-        
-      })
+          body:formData
+      }) 
 
-      const result = await response.json()
-      console.log(result)
+      let data = await response.json()
+
+        console.log(data.message)
+      
     }
     
+
+   
   },
 
   

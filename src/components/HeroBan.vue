@@ -1,5 +1,7 @@
 <template>
-    <section class="relative -top-16 text-white bg-slate-900  body-font">
+
+<NavBar/>
+<section class="relative -top-16 text-white bg-slate-900  body-font text-center">
   <div class="container mx-auto flex flex-col px-5 pt-11 justify-center items-center">
     <div class="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
       <h1 class="title-font  text-6xl mb-8 font-bold ">Apprenez des  <span class="text-sky-600">Meilleurs</span></h1>
@@ -33,20 +35,20 @@
     </div>
     <div class="flex flex-wrap gap-10 justify-center sm:-m-4 -mx-4 -mb-10 -mt-4">
       
-      <HeroCard source=http://localhost:8080/img/tailored.0b53a2c8.svg
+      <HeroCard source=http://localhost/filRougeImg/tailored.svg
                 title="Sur mesure pour vous"
                 text="Quel que soit votre niveau d'expérience, vous écrirez du code réel et fonctionnel quelques minutes après le début de votre premier cours. "
                 />
 
       <HeroCard  title="Bite-sized"
-                 source= http://localhost:8080/img/toTheTop.cbe68c6a.svg
+                 source= http://localhost/filRougeImg/toTheTop.svg
                  style="width:500px; margin-bottom:75px"
                  text="Suivez étape par étape nos cours uniques. Évaluez ce que vous avez appris avec des questionnaires en cours et améliorez progressivement vos compétences avec la pratique."
       />
                  
       <HeroCard title="Get proof"
                 style="width:500px; margin-bottom:75px"
-                source=http://localhost:8080/img/teamwork.7e1c8e7f.svg
+                source=http://localhost/filRougeImg/teamwork.svg
                 text="Earn a certificate to validate your newly acquired skills. 
                           Post it on social for others to see."
       />
@@ -73,7 +75,7 @@
       />
       <ThirdCard title="Professionals"
                  style="width:260px; margin:0 auto"
-                 source= http://localhost:8080/img/content.f0ab35d6.svg
+                 source= http://localhost/filRougeImg/content.svg
                  text="Vous pouvez apprendre quelque chose de totalement nouveau pour faire avancer votre carrière. Ou peut-être voulez-vous simplement éliminer la rouille. Essayez Sololearn pour accéder à une variété de cours, de l'apprentissage automatique au développement Web."
       />
       
@@ -86,11 +88,11 @@
 <script>
 import HeroCard from "@/components/HeroCard"
 import ThirdCard from "@/components/ThirdCard"
-
+import NavBar from "@/components/NavBar"
 
 
 export default{
     name: "HeroBan",
-    components: { HeroCard, ThirdCard }
+    components: { HeroCard, ThirdCard,NavBar }
 }
 </script>
