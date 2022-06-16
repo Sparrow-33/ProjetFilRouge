@@ -727,10 +727,7 @@
                     Meet AutoManage, the best AI management tools
                   </a>
                 </h3>
-                <p class="text-base text-slate-600">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
+                
               </div>
             </div>
           </div>
@@ -759,10 +756,7 @@
                     How to earn more money as a wellness coach
                   </a>
                 </h3>
-                <p class="text-base text-slate-600">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
+                
               </div>
             </div>
           </div>
@@ -791,10 +785,7 @@
                     The no-fuss guide to upselling and cross selling
                   </a>
                 </h3>
-                <p class="text-base text-slate-600">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
+                
               </div>
             </div>
           </div>
@@ -815,6 +806,65 @@
 
     </section>
 
+    <!-- comments start -->
+<section class="text-gray-600 body-font relative  comment-section">
+  <div class="container px-5 py-12 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-3xl font-semibold title-font mb-4 text-gray-900">Commentaires</h1>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2">
+       
+        <div class="p-2 w-full">
+          <div class="relative">
+            <label for="message" class="leading-7 text-sm text-gray-600">Tapez</label>
+            <textarea id="message" v-model="comment" @input="getTextSubject($event.target.value)" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+          </div>
+        </div>
+        <div class="p-2 w-full flex ">
+          <button @click="postComment" class="flex justify-self-start  mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Publier</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- comments end -->
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-col flex-wrap">
+    <div class="flex flex-wrap -m-4  flex-col justify-center">
+      <div class="p-4 lg:w-1/2 md:w-full">
+        <div class="flex border-2 rounded-lg bg-white border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+          <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 flex-shrink-0" >
+            <img src="http://localhost/filRougeImg/no-profile-" class="rounded-full" alt="">
+          </div>
+          <div class="flex-grow">
+
+            <div class="flex w-full gap-10 border-b mb-4 ">
+               <h2 class="text-gray-900 text-lg title-font font-medium mb-3">User name</h2>
+               <span>Postulé  <span>2min ago</span> </span>
+            </div>
+
+            <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
+            <a class="mt-3 text-blue-500 inline-flex items-center">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+    <!-- display comment start -->
+
+     
+
+    <!-- display comment end -->
 
   <FooterVue />
 </template>
@@ -832,11 +882,12 @@ export default {
       isLoading: false,
       isError: false,
       errorMessage: "",
+      comment:"",
       blog: {
         id:13,
         title: "",
         content: "",
-        image:"http://localhost/filRougeImg/",
+        image:"",
         date: "",
       },
       id:13,
@@ -845,6 +896,13 @@ export default {
   },
 
   methods:{
+
+     getTextSubject(value) {
+      this.comment = value;
+      console.log(this.comment);
+    },
+
+
       scrollToTop() {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -856,7 +914,7 @@ export default {
      //function get specific blog
      async getBlog() {
       let obj={
-         id:"13"
+         id:"20"
       }
 
        const response = await fetch('http://localhost/app/users/getArticle',{
@@ -873,13 +931,48 @@ export default {
       this.blog.title=data.title;
       this.blog.content=data.body;
       console.log(this.blog.title);
-      this.blog.image="http://localhost/filRougeImg/"+data.cover;
-    
+      this.blog.image = data.cover
+      this.blog.image="http://localhost/filRougeImg/"+this.blog.image;
+      console.log(this.blog.image);
+
+
       this.isLoading = true;
       this.isError = false;
       this.errorMessage = "";
-     },               
+     },
+     
+     //function post comment
+      async postComment() {
+        let obj={
+          article_id:"20",
+          comment:this.comment,
+          UID: localStorage.getItem("id")
+        }
+  
+        const response = await fetch('http://localhost/app/users/postComment',{
+            method: 'POST',
+            headers: {
+                        "Content-Type": "application/json",
+                      },
+            body:JSON.stringify(obj),
+        }) 
+  
+        console.log(JSON.stringify(obj))
+        const data = await response.json();
+
+        if(data.status === 200){
+
+          console.log("commentaire posté");
+        }
+  
+        this.comment="";
+        this.isLoading = true;
+        this.isError = false;
+        this.errorMessage = "";
+      },
   },
+
+
 
   computed:{
      displayContent(){
@@ -895,6 +988,14 @@ export default {
 </script>
 
 <style scoped >
+
+.content *h1{
+  color:red;
+}
+
+.comment-section{
+  border-top:1px solid rgb(190, 190, 190)
+}
 
 
 /* animation start */

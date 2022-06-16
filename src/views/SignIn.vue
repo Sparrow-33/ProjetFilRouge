@@ -359,7 +359,7 @@ export default {
 
         if (response.status == 200) {
         let result = await response.json()
-        console.log(result.token);
+        localStorage.setItem('id', result.id)
         this.$toast.success("Login Successful");
         this.$router.push("/");
 
@@ -369,6 +369,8 @@ export default {
 
       
     },
+
+    //a
   },
 };
 </script>

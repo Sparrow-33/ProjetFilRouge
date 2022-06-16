@@ -16,8 +16,13 @@
        <div class="p-2 ">
           <div class="relative">
             <!-- <label for="name" class="leading-7 text-sm text-gray-600">Post Image</label> -->
-            <select  class="preview-btn bg-gray-100 bg-opacity-50 rounded-full border border-slate-900  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <select  class="preview-btn bg-gray-100 bg-opacity-50 rounded-full border border-slate-900  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              v-on:change="changeItem($event)"
+              v-model="selected">
               <option selected>Categories</option>
+              <option  v-for="cat in categories" :key="cat.IDC" :value="cat.IDC">
+                {{cat.CatName}}
+              </option>
             </select>
           </div>
         </div>
@@ -80,17 +85,24 @@ export default {
      return{
        delta:"",
        photo: null,
-       title:""
+       title:"",
+       categories:null,
+       selected:null,
      }
   },
 
   methods:{
 
+   changeItem: function changeItem(event) {
+      this.selected = event.target.value;
+
+      console.log(event.target.value);
+    },
+
 
      onEditorChange(html){
          this.delta =  html
        
-        console.log(html)
     },
 
     handleUpload(file){
@@ -103,6 +115,7 @@ export default {
       formData.append('title', this.title)
       formData.append('content', this.delta)
       formData.append('file', this.photo)
+      formData.append('category_id', this.selected)
   
       const response = await fetch('http://localhost/app/users/createArticle',{
           method: 'POST',
@@ -110,15 +123,53 @@ export default {
       }) 
 
       let data = await response.json()
+      console.log(data)
 
-        console.log(data.message)
       
-    }
+    },
+
+    //function to post comment
+    async postComment(){
+      const formData = new FormData()
+      formData.append('content', this.comment)
+      formData.append('article_id', this.article_id)
+      formData.append('user_id', this.user_id)
+  
+       await fetch('http://localhost/app/users/postComment',{
+          method: 'POST',
+          body:formData
+      }) 
+
+      // let data = await response.json()
+
+      
+    },
+
+    //function to get all categories
+    async getCategories(){
+      const response = await fetch('http://localhost/app/users/getCategories',{
+          method: 'GET',
+      }) 
+
+      let data = await response.json()
+
+      this.categories = data
+
+         console.log("here are the categories")
+        console.log(this.categories)
+      
+    },
+    
     
 
    
   },
 
+  beforeMount(){
+
+    this.getCategories()
+
+  }
   
   
 

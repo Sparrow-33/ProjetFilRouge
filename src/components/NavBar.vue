@@ -12,6 +12,7 @@
       <router-link to="#" class="mr-5 hover:text-cyan-600">Home</router-link>
       <router-link to="#"  class="mr-5 hover:text-cyan-600">a propos</router-link>
       <router-link :to="{name:'blog'}" class="mr-5 hover:text-cyan-600">Blog</router-link>
+      <router-link :to="{name: 'WritePost'}"  class="mr-5 hover:text-cyan-600">create Article</router-link>
       <router-link to="/ContactPage" class="mr-5 hover:text-cyan-600">Contactez nous</router-link>
     </nav>
 
