@@ -1092,7 +1092,7 @@
   <!-- comments start -->
   <section class="text-gray-600 body-font relative comment-section">
     <div class="container px-5 py-12 mx-auto">
-      <div class="flex flex-col text-center w-full mb-12">
+      <div class="flex  text-center justify-center w-full  mb-12">
         <h1
           class="
             sm:text-3xl
@@ -1100,7 +1100,10 @@
             font-semibold
             title-font
             mb-4
+            py-2
             text-gray-900
+            w-fit
+            comment-title
           "
         >
           Commentaires
@@ -1415,6 +1418,18 @@ export default {
 
 .comment-section {
   border-top: 1px solid rgb(190, 190, 190);
+}
+
+.comment-title{
+
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform:uppercase;
+   background: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+
+  color:transparent;
+  -webkit-background-clip: text;
+
 }
 
 /* animation start */
