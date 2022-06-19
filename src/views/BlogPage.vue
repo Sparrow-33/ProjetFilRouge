@@ -51,18 +51,18 @@
                 <div class="mb-4 mr-5 flex items-center md:mr-10">
                   <div class="mr-4 h-10 w-10 overflow-hidden rounded-full">
                     <img
-                      src="https://source.unsplash.com/random/480x360"
+                      :src="profileConcat(blog.profile)"
                       alt="image"
                       class="w-full"
                     />
                   </div>
                   <p class="text-base font-medium text-white">
-                    By
+                    Par
                     <a
                       href="javascript:void(0)"
                       class="text-white hover:opacity-70"
                     >
-                      Samuyl Joshi
+                     {{blog.name}}
                     </a>
                   </p>
                 </div>
@@ -114,7 +114,7 @@
                         />
                       </svg>
                     </span>
-                    26 Feb 2023
+                    {{ displayDate(blog.date)}}
                   </p>
 
                   <p
@@ -146,26 +146,9 @@
                         />
                       </svg>
                     </span>
-                    05
+                    {{comment.length}}
                   </p>
-                  <p class="flex items-center text-sm font-medium text-white">
-                    <span class="mr-3">
-                      <svg
-                        width="20"
-                        height="12"
-                        viewBox="0 0 20 12"
-                        class="fill-current"
-                      >
-                        <path
-                          d="M10.2559 3.8125C9.03711 3.8125 8.06836 4.8125 8.06836 6C8.06836 7.1875 9.06836 8.1875 10.2559 8.1875C11.4434 8.1875 12.4434 7.1875 12.4434 6C12.4434 4.8125 11.4746 3.8125 10.2559 3.8125ZM10.2559 7.09375C9.66211 7.09375 9.16211 6.59375 9.16211 6C9.16211 5.40625 9.66211 4.90625 10.2559 4.90625C10.8496 4.90625 11.3496 5.40625 11.3496 6C11.3496 6.59375 10.8496 7.09375 10.2559 7.09375Z"
-                        />
-                        <path
-                          d="M19.7559 5.625C17.6934 2.375 14.1309 0.4375 10.2559 0.4375C6.38086 0.4375 2.81836 2.375 0.755859 5.625C0.630859 5.84375 0.630859 6.125 0.755859 6.34375C2.81836 9.59375 6.38086 11.5312 10.2559 11.5312C14.1309 11.5312 17.6934 9.59375 19.7559 6.34375C19.9121 6.125 19.9121 5.84375 19.7559 5.625ZM10.2559 10.4375C6.84961 10.4375 3.69336 8.78125 1.81836 5.96875C3.69336 3.1875 6.84961 1.53125 10.2559 1.53125C13.6621 1.53125 16.8184 3.1875 18.6934 5.96875C16.8184 8.78125 13.6621 10.4375 10.2559 10.4375Z"
-                        />
-                      </svg>
-                    </span>
-                    05
-                  </p>
+                  
                 </div>
               </div>
             </div>
@@ -275,14 +258,12 @@
                       data-wow-delay=".1s"
                     >
                       <span class="mr-5 text-sm font-medium text-slate-600">
-                         aimeraiez vous cet'article ?
+                        aimeraiez vous cet'article ?
                       </span>
                       <div class="flex items-center">
                         <a href="javascript:void(0)" class="mr-4 mb-2">
                           <i class="fa-light fa-heart"></i>
                         </a>
-                        
-                        
                       </div>
                     </div>
                   </div>
@@ -1134,7 +1115,7 @@
               >
               <textarea
                 id="message"
-                v-model="comment"
+                v-model="blog.comment"
                 @input="getTextSubject($event.target.value)"
                 name="message"
                 class="
@@ -1190,8 +1171,10 @@
 
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-col flex-wrap">
-      <div class="flex flex-wrap -m-4 flex-col justify-center"
-         v-for="comment in comment" :key="comment.CID"
+      <div
+        class="flex flex-wrap -m-4 flex-col justify-center"
+        v-for="comment in comment"
+        :key="comment.CID"
       >
         <div class="p-4 lg:w-1/2 md:w-full">
           <div
@@ -1207,31 +1190,26 @@
             "
           >
             <div
-                        class="
-                          mr-5
-                          h-20
-                          w-full
-                          max-w-[80px]
-                          overflow-hidden
-                          rounded-full
-                        "
-                      >
-                        <img
-                          :src=profileConcat(comment.profile)
-                          alt="image"
-                          class="w-full"
-                        />
-                      </div>
+              class="mr-5 h-20 w-full max-w-[80px] overflow-hidden rounded-full"
+            >
+              <img
+                :src="profileConcat(comment.profile)"
+                alt="image"
+                class="w-full"
+              />
+            </div>
             <div class="flex-grow">
               <div class="flex w-full gap-10 border-b mb-4">
                 <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
-                  {{comment.name}}
+                  {{ comment.name }}
                 </h2>
-                <span>Postulé <span>{{comment.time}}</span> </span>
+                <span
+                  >Postulé <span>{{ displayMoment(comment.time) }}</span>
+                </span>
               </div>
 
               <p class="leading-relaxed text-base">
-               {{comment.comment}}
+                {{ comment.comment }}
               </p>
               <a class="mt-3 text-blue-500 inline-flex items-center"
                 >Learn More
@@ -1265,6 +1243,8 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import FooterVue from "@/components/FooterVue.vue";
+import moment from "moment";
+
 export default {
   name: "BlogPage",
   components: { NavBar, FooterVue },
@@ -1275,14 +1255,17 @@ export default {
       isError: false,
       errorMessage: "",
       comment: "",
-      displayComment:[],
+      displayComment: [],
 
       blog: {
         id: 13,
         title: "",
         content: "",
         image: "",
+        profile:"",
         date: "",
+        comment: "",
+        name: "",
       },
       id: 13,
       test: "<h1>test</h1>",
@@ -1291,13 +1274,27 @@ export default {
 
   methods: {
 
+   //blog date
+    displayDate(date) {
+      return moment(date).format("DD/MM/YYYY");
+    },
+
+    //function to turn timestamp into relative time
+
+    displayMoment(time) {
+      return moment(time).fromNow();
+    },
+
+    // displayMoment(date) {
+    //   return moment(date).format("DD/MM/YYYY");
+    // },
+
     profileConcat(profile) {
       return "http://localhost/filRougeImg/" + profile;
     },
 
     getTextSubject(value) {
-      this.comment = value;
-      console.log(this.comment);
+      this.blog.comment = value;
     },
 
     scrollToTop() {
@@ -1305,13 +1302,12 @@ export default {
     },
 
     // get today's date yyyy-mm-dd
-    
-    
 
     //function get specific blog
     async getBlog() {
       let obj = {
         id: "20",
+        UID:localStorage.getItem("id"),
       };
 
       const response = await fetch("http://localhost/app/users/getArticle", {
@@ -1327,8 +1323,11 @@ export default {
 
       this.blog.title = data.title;
       this.blog.content = data.body;
-      // console.log(this.blog.title);
+      console.log(this.blog.title);
       this.blog.image = data.cover;
+      this.blog.profile = data.profile;
+      this.blog.date = data.time;
+      this.blog.name = data.name;
       this.blog.image = "http://localhost/filRougeImg/" + this.blog.image;
       // console.log(this.blog.image);
 
@@ -1339,39 +1338,36 @@ export default {
 
     //function post comment
     async postComment() {
-
-
-      if (this.comment == "" ) {
+      if (this.comment == "") {
         this.$toast.error("Please fill the comment");
-      } 
-      else{
-      let obj = {
-        article_id: "20",
-        comment: this.comment,
-        UID: localStorage.getItem("id")
-      };
+      } else {
+        let obj = {
+          article_id: "20",
+          comment: this.blog.comment,
+          UID: localStorage.getItem("id"),
+        };
 
-      const response = await fetch("http://localhost/app/users/postComment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(obj),
-      });
+        const response = await fetch("http://localhost/app/users/postComment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        });
 
-      if (response.status === 200) {
+        if (response.status === 200) {
+          let data = await response.json();
+          console.log(data.message);
+          this.$toast.success("Comment posted");
+          this.getComment();
+          console.log("commentaire posté");
+        }
 
-        let data = await response.json();
-        console.log(data.message);
-         this.$toast.success("Comment posted");
-        console.log("commentaire posté");
+        this.comment = "";
+        this.isLoading = true;
+        this.isError = false;
+        this.errorMessage = "";
       }
-
-      this.comment = "";
-      this.isLoading = true;
-      this.isError = false;
-      this.errorMessage = "";
-    }
     },
 
     //function get all comment
@@ -1397,11 +1393,7 @@ export default {
       this.isError = false;
       this.errorMessage = "";
     },
-
-
   },
-
-  
 
   computed: {
     displayContent() {

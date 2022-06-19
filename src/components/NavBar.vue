@@ -60,7 +60,7 @@
         >
         <!-- profile start -->
 
-        <div class="relative inline-block" >
+        <div class="relative inline-block" v-if="state == false" >
           <!-- Dropdown toggle button -->
           <button
             @click="profile = !profile"
@@ -83,7 +83,7 @@
               focus:outline-none
             "
           >
-            <span class="mx-1">Jane Doe</span>
+            <span class="mx-1">{{name}}</span>
             <svg
               class="w-5 h-5 mx-1"
               viewBox="0 0 24 24"
@@ -132,17 +132,17 @@
             >
               <img
                 class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
-                src="https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW4lMjBibHVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=face&w=500&q=200"
+                :src="profileConcat(profile_pic)"
                 alt="jane avatar"
               />
               <div class="mx-1">
                 <h1
                   class="text-sm font-semibold text-gray-700 dark:text-gray-200"
                 >
-                  Jane Doe
+                  {{name}}
                 </h1>
                 <p class="text-sm text-gray-500 dark:text-gray-400">
-                  janedoe@exampl.com
+                  {{email}}
                 </p>
               </div>
             </a>
@@ -219,6 +219,7 @@
               <span class="mx-1"> my blog </span>
             </a>
             <a
+              @click="logout"
               href="#"
               class="
                 flex
@@ -254,7 +255,7 @@
         <!-- profile end -->
       </nav>
 
-      <router-link to="/SignIn">
+      <router-link to="/SignIn"  v-if="state == true">
         <button
           class="
             inline-flex
@@ -271,6 +272,7 @@
             mt-4
             md:mt-0
           "
+         
         >
           s'inscrire
         </button>
@@ -280,13 +282,74 @@
 </template>
 
 <script >
+import { tsNullKeyword } from '@babel/types';
+
 export default {
   name: "NavBar",
 
   data() {
     return {
       profile: false,
+      toke: localStorage.getItem("id"),
+      state:tsNullKeyword,
+      profile_pic:"",
+      name:"",
+      email:""
     };
+  },
+
+  methods:{
+
+    // function to check if user is logged in
+    isLoggedIn() {
+      if (localStorage.getItem("id") == null || localStorage.getItem("id") == "") {
+        console.log( localStorage.getItem("id"));
+        this.state = true;
+        return true;
+      } else {
+        this.state = false;
+        return false;
+      }
+    },
+
+    // function to logout user
+    logout(){
+      localStorage.removeItem("id");
+      this.$router.push("/SignIn");
+    },
+
+    profileConcat(profile) {
+      return "http://localhost/filRougeImg/" + profile;
+    },
+
+    async getProfile() {
+      
+     
+      const response = await fetch("http://localhost/app/users/getUserById", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            id: localStorage.getItem("id"),
+          }),
+        });
+
+        if(response.status == 200){
+          const data = await response.json();
+          this.profile_pic = data.profile;
+          this.name = data.name;
+          this.email = data.email;
+        }
+    },
+
+
+  },
+
+  beforeMount() {
+    if(!this.isLoggedIn())
+    {
+        this.getProfile()
+    }
+    
   },
 };
 </script>
