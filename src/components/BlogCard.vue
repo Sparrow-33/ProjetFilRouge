@@ -15,7 +15,7 @@
 					<div class="flex space-x-2">
 
 						<a href="#" class="block relative">
-    <img alt="profil" src="../assets/ethic.png" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                        <img alt="cover" src="../assets/ethic.png" class="mx-auto object-cover rounded-full h-10 w-10 "/>
                </a>
 
 						<span class="self-center text-sm">by Leroy Jenkins</span>

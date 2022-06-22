@@ -60,8 +60,9 @@ const routes =[
         component:ContactPage
     },
     {
-        path:"/BlogPage",
+        path:"/BlogPage/:id",
         name:"BlogPage",
+    
         component:BlogPage
     },
     {
