@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
+  <main class="bg-gray-100  h-screen overflow-hidden relative">
     <div class="flex items-start justify-between">
       <div class="h-screen hidden lg:block my-4 ml-4 shadow-lg relative w-80">
         <!-- Heeeeeeeeeeeeeeeeeere -->
@@ -12,7 +12,7 @@
             w-full
             shadow-lg
             bg-white
-            dark:bg-gray-700
+            
             items-center
             h-16
             rounded-2xl
@@ -118,7 +118,7 @@
                       focus:ring-blue-500
                       ring-opacity-90
                       bg-gray-100
-                      dark:bg-gray-800
+                      
                       text-gray-400
                       aa-input
                     "
@@ -197,7 +197,7 @@
                 >
                   <table class="min-w-full leading-normal z-10">
                     <thead class="">
-                      <tr class="bg-slate-700 text-white">
+                      <tr class="bg-white text-slate-500">
                         <th
                           scope="col"
                           class="
@@ -265,15 +265,15 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody class="bg-slate-800 text-slate-200">
-                      <tr>
+                    <tbody class="bg-white text-slate-600">
+                      <tr v-for="user in users" :key="user.ID">
                         <td class="px-5 py-5 border-b border-gray-200 text-sm">
                           <div class="flex items-center">
                             <div class="flex-shrink-0">
                               <a href="#" class="block relative">
                                 <img
-                                  alt="profil"
-                                  src="@/assets/trianglify-lowres.png"
+                                  alt="profile"
+                                  :src="profileConcat(user.profile)"
                                   class="
                                     mx-auto
                                     object-cover
@@ -285,15 +285,15 @@
                               </a>
                             </div>
                             <div class="ml-3">
-                              <p class="whitespace-no-wrap">Jean marc</p>
+                              <p class="whitespace-no-wrap">{{user.name}}</p>
                             </div>
                           </div>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                          <p class="whitespace-no-wrap">Admin</p>
+                          <p class="whitespace-no-wrap">{{user.STATUS == 0 ? "User" : "Admin"}}</p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                          <p class="whitespace-no-wrap">12/09/2020</p>
+                          <p class="whitespace-no-wrap">{{displayDate(user.created_at)}}</p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 text-sm">
                           <span
@@ -303,7 +303,7 @@
                               px-3
                               py-1
                               font-semibold
-                              text-green-900
+                              text-green-500
                               leading-tight
                             "
                           >
@@ -350,259 +350,9 @@
                           </span>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                              <a href="#" class="block relative">
-                                <img
-                                  alt="profil"
-                                  src="@/assets/trianglify-lowres.png"
-                                  class="
-                                    mx-auto
-                                    object-cover
-                                    rounded-full
-                                    h-10
-                                    w-10
-                                  "
-                                />
-                              </a>
-                            </div>
-                            <div class="ml-3">
-                              <p class="whitespace-no-wrap">Marcus coco</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <p class="whitespace-no-wrap">Designer</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <p class="whitespace-no-wrap">01/10/2012</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <span
-                            class="
-                              relative
-                              inline-block
-                              px-3
-                              py-1
-                              font-semibold
-                              text-green-900
-                              leading-tight
-                            "
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="
-                                absolute
-                                inset-0
-                                bg-green-200
-                                opacity-50
-                                rounded-full
-                              "
-                            >
-                            </span>
-                            <span class="relative"> active </span>
-                          </span>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <span
-                            class="
-                              relative
-                              inline-block
-                              px-3
-                              py-1
-                              font-semibold
-                              text-red-600
-                              leading-tight
-                            "
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="
-                                absolute
-                                inset-0
-                                bg-red-200
-                                opacity-50
-                                rounded-full
-                              "
-                            >
-                            </span>
-                            <span class="relative">
-                              <i class="fa-solid fa-ban"></i>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                              <a href="#" class="block relative">
-                                <img
-                                  alt="profil"
-                                  src="@/assets/trianglify-lowres.png"
-                                  class="
-                                    mx-auto
-                                    object-cover
-                                    rounded-full
-                                    h-10
-                                    w-10
-                                  "
-                                />
-                              </a>
-                            </div>
-                            <div class="ml-3">
-                              <p class="whitespace-no-wrap">Marcus coco</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <p class="whitespace-no-wrap">Designer</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <p class="whitespace-no-wrap">01/10/2012</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <span
-                            class="
-                              relative
-                              inline-block
-                              px-3
-                              py-1
-                              font-semibold
-                              leading-tight
-                            "
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="
-                                absolute
-                                inset-0
-                                bg-emerald-200
-                                opacity-50
-                                rounded-full
-                              "
-                            >
-                            </span>
-                            <span class="relative"> active </span>
-                          </span>
-                        </td>
-
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <span
-                            class="
-                              relative
-                              inline-block
-                              px-3
-                              py-1
-                              font-semibold
-                              text-red-600
-                              leading-tight
-                            "
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="
-                                absolute
-                                inset-0
-                                bg-red-200
-                                opacity-50
-                                rounded-full
-                              "
-                            >
-                            </span>
-                            <span class="relative">
-                              <i class="fa-solid fa-ban"></i>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                              <a href="#" class="block relative">
-                                <img
-                                  alt="profil"
-                                  src="@/assets/trianglify-lowres.png"
-                                  class="
-                                    mx-auto
-                                    object-cover
-                                    rounded-full
-                                    h-10
-                                    w-10
-                                  "
-                                />
-                              </a>
-                            </div>
-                            <div class="ml-3">
-                              <p class="whitespace-no-wrap">Marcus coco</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <p class="whitespace-no-wrap">Designer</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-400 text-sm">
-                          <p class="whitespace-no-wrap">01/10/2012</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                          <span
-                            class="
-                              relative
-                              inline-block
-                              px-3
-                              py-1
-                              font-semibold
-                              text-green-900
-                              leading-tight
-                            "
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="
-                                absolute
-                                inset-0
-                                bg-green-200
-                                opacity-50
-                                rounded-full
-                              "
-                            >
-                            </span>
-                            <span class="relative"> active </span>
-                          </span>
-                        </td>
-
-                        <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                          <span
-                            class="
-                              relative
-                              inline-block
-                              px-3
-                              py-1
-                              font-semibold
-                              text-red-600
-                              leading-tight
-                            "
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="
-                                absolute
-                                inset-0
-                                bg-red-200
-                                opacity-50
-                                rounded-full
-                              "
-                            >
-                            </span>
-                            <span class="relative">
-                              <i class="fa-solid fa-ban"></i>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
+                     
+                      
+                      
                     </tbody>
                   </table>
                 </div>
@@ -621,12 +371,65 @@
 
 <script>
 import sideBarDash from "@/components/sideBarDash.vue";
+import moment from "moment";
 
 export default {
   name: "UsersDashboard",
   components: {
     sideBarDash,
   },
+
+  data(){
+    return{
+      users:[],
+    }
+  },
+ 
+  methods:{
+
+    //display the date
+    displayDate(date) {
+      return moment(date).format("DD/MM/YYYY");
+    },
+
+    profileConcat(profile) {
+      return "http://localhost/filRougeImg/" + profile;
+    },
+
+
+    async getAllUsers(){
+
+      const response = await fetch("http://localhost/app/users/getAllUsers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+       
+      });
+     
+     if(response.status === 200){
+      
+      const data = await response.json();
+
+      this.users = data;
+      console.log(this.users)
+
+     }else{
+
+       this.$toast.error("something went wrong");
+     }
+
+      
+    
+    },
+  },
+
+  beforeMount(){
+    this.getAllUsers();
+  }
+
+
+
 };
 </script>
 

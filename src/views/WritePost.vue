@@ -3,7 +3,7 @@
   <section class="text-gray-600 body-font relative -top-40">
   <form @submit.prevent="createArticle()" >
   <div class="container px-5 py-24 mx-auto">
-    <div class="flex justify-center  text-center w-full mb-12  ">
+    <div class="flex justify-center  text-center w-full mt-14 mb-14  ">
       <h1 class="sm:text-3xl text-2xl w-fit py-4 px-10 rounded-b-lg font-medium title-font mb-4 bg-slate-900 text-slate-200">Creer votre Article</h1>
       <!-- <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p> -->
     </div>

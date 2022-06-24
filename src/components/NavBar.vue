@@ -43,14 +43,14 @@
         <router-link to="/TutorialsPage" class="mr-5 hover:text-cyan-600"
           >Tutoriels</router-link
         >
-        <router-link to="#" class="mr-5 hover:text-cyan-600">Home</router-link>
+        <router-link to="/" class="mr-5 hover:text-cyan-600">Home</router-link>
         <router-link to="#" class="mr-5 hover:text-cyan-600"
           >a propos</router-link
         >
         <router-link :to="{ name: 'blog' }" class="mr-5 hover:text-cyan-600"
           >Blog</router-link
         >
-        <router-link
+        <router-link v-if="state == false"
           :to="{ name: 'WritePost' }"
           class="mr-5 hover:text-cyan-600"
           >create Article</router-link
@@ -149,8 +149,8 @@
 
             <hr class="border-gray-200 dark:border-gray-700" />
 
-            <a
-              href="#"
+            <router-link to="/UserProfile"
+              
               class="
                 flex
                 items-center
@@ -182,7 +182,7 @@
               </svg>
 
               <span  class="mx-1"> view profile </span>
-            </a>
+            </router-link>
 
             <hr class="border-gray-200 dark:border-gray-700" />
 

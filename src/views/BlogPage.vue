@@ -564,7 +564,7 @@
       </div>
 
       <div class="-mx-4 flex flex-wrap">
-        <div class="wow fadeInUp mt-14 w-full px-4" data-wow-delay=".2s">
+        <div class="wow fadeInUp mt-14 w-full px-4">
           <h2 class="
               relative
               pb-5
@@ -575,10 +575,9 @@
             ">
             Related Articles
           </h2>
-          <span class="mb-10 inline-block h-[2px] w-20 bg-primary"></span>
         </div>
         <div class="w-full px-4 md:w-1/2 lg:w-1/3" v-for="related in relatedBlog" :key="related.ID">
-          <div class="wow fadeInUp group mb-10" data-wow-delay=".1s">
+          <div class="wow fadeInUp group mb-10">
             <div class="mb-8 overflow-hidden rounded">
               <a href="blog-details.html" class="block">
                 <img :src="profileConcat(related.cover)" alt="image" class="
@@ -587,6 +586,7 @@
                     group-hover:rotate-6 group-hover:scale-125
                     h-56
                   " />
+
               </a>
             </div>
             <div>
@@ -648,7 +648,6 @@
         ease-in-out
         hover:bg-dark
       ">
-      <span class="mt-[6px] h-3 w-3 rotate-45 border-t border-l border-white"></span>
     </a>
     <!-- ====== Back To Top End -->
   </section>
@@ -656,17 +655,18 @@
   <!-- comments start -->
   <section class="text-gray-600 body-font relative comment-section">
     <div class="container px-5 py-12 mx-auto">
-      <div class="flex  text-center justify-center w-full  mb-12">
+      <div class="flex  text-center justify-start w-full  mb-12">
         <h1 class="
             sm:text-3xl
             text-3xl
             font-semibold
             title-font
+            text-left
             mb-4
             py-2
             text-gray-900
             w-fit
-            comment-title
+            
           ">
           Commentaires
         </h1>
@@ -748,15 +748,14 @@
                 </h2>
                 <span>Postulé <span>{{ displayMoment(comment.time) }}</span>
                 </span>
+                
               </div>
 
               <p class="leading-relaxed text-base">
                 {{ comment.comment }}
               </p>
 
-              <span class="mt-3 text-red-500 inline-flex items-center bg-red-300 rounded-full px-2 py-2 ">
-                <i class="fa-solid fa-trash-can"></i>
-              </span>
+             
 
             </div>
           </div>
@@ -837,7 +836,6 @@ export default {
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
 
-    // get today's date yyyy-mm-dd
 
     //function get specific blog
     async getBlog() {
@@ -854,7 +852,7 @@ export default {
         body: JSON.stringify(obj),
       });
 
-      // console.log(obj)
+     
       const data = await response.json();
 
       this.blog.title = data.title;
@@ -864,9 +862,7 @@ export default {
       this.blog.profile = data.profile;
       this.blog.date = data.time;
       this.blog.name = data.name;
-      // this.blog.image = "http://localhost/filRougeImg/" + this.blog.image;
-      // console.log(this.blog.image);
-
+    
       this.isLoading = true;
       this.isError = false;
       this.errorMessage = "";
@@ -1035,7 +1031,7 @@ export default {
 
     //function post comment
     async postComment() {
-      if (this.comment == "") {
+      if (this.blog.comment == "") {
         this.$toast.error("Please fill the comment");
       } else {
         let obj = {
@@ -1134,7 +1130,7 @@ export default {
 }
 
 .comment-section {
-  border-top: 1px solid rgb(190, 190, 190);
+  border-top: 1px solid rgb(237, 237, 237);
 }
 
 .comment-title {

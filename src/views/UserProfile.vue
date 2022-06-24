@@ -17,15 +17,15 @@
           "
         >
           <div>
-            <p class="font-bold text-gray-700 text-xl">22</p>
+            <p class="font-bold text-gray-700 text-xl">0</p>
             <p class="text-gray-400"><i class="fa-solid fa-newspaper"></i></p>
           </div>
           <div>
-            <p class="font-bold text-gray-700 text-xl">10</p>
+            <p class="font-bold text-gray-700 text-xl">0</p>
             <p class="text-gray-400"><i class="fa-solid fa-heart"></i></p>
           </div>
           <div>
-            <p class="font-bold text-gray-700 text-xl">89</p>
+            <p class="font-bold text-gray-700 text-xl">0</p>
             <p class="text-gray-400 text-lg">
               <i class="fa-solid fa-comment-dots"></i>
             </p>
@@ -113,7 +113,6 @@
         <p class="mt-4 text-gray-500">
           <i class="fa-solid fa-phone"></i> <span>{{ phone }}</span>
         </p>
-        <p class="mt-2 text-gray-500">University of Computer Science</p>
       </div>
       <div class="mt-8 flex flex-col justify-center">
         <h1 class="text-xl font-medium text-gray-700 text-center">
@@ -191,10 +190,6 @@
             "
           ></i
         ></span>
-
-        <h3 class="font-bold text-dark text-xl sm:text-2xl pb-2">
-          Your Message Sent Successfully
-        </h3>
         <span
           class="inline-block bg-primary h-1 w-[90px] mx-auto rounded mb-6"
         ></span>
@@ -369,6 +364,7 @@
 import NavBar from "../components/NavBar.vue";
 import Footer from "../components/FooterVue.vue";
 import moment from "moment";
+import swal from 'sweetalert';
 
 export default {
   name: "UserProfile",
@@ -442,6 +438,10 @@ export default {
         // const data = await response.json();
           this.getProfile();
         this.displayUpdate = false;
+              swal({
+        title: "Profile Updated",
+        icon: "success",
+      });
       }
     },
 

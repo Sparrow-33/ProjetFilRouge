@@ -13,6 +13,9 @@ import NotFound from "@/views/NotFound"
 import TutorialsPage from "@/views/TutorialsPage"
 import UsersDashboard from "@/views/UsersDashboard"
 import UserProfile from "@/views/UserProfile"
+import blogDash from "@/views/blogDash"
+import htmlVue from "@/views/htmlVue"
+import signInAdmin from "@/views/signInAdmin"
 
 
 
@@ -45,6 +48,11 @@ const routes =[
         component:DashBoard
     },
     {
+       path:"/blogDash",
+       name:"blogDash",
+       component:blogDash
+    },
+    {
         path:"/WritePost",
         name:"WritePost",
         component: WritePost
@@ -65,6 +73,7 @@ const routes =[
     
         component:BlogPage
     },
+
     {
         path:"/TutorialsPage",
         name:"TutorialsPage",
@@ -79,6 +88,17 @@ const routes =[
         path:"/UserProfile",
         name:"UserProfile",
         component:UserProfile
+    },
+    {
+        path:"/signInAdmin",
+        name:"signInAdmin",
+        component:signInAdmin
+    },
+    
+    {
+        path:"/htmlVue",
+        name:"htmlVue",
+        component:htmlVue
     },
     { path: "/:pathMatch(.*)*", redirect: {path: '/NotFound'}, component:NotFound}
 ]
